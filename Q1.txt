@@ -1,0 +1,20 @@
+synonymes
+
+-salle et salle de classe et salle de cours
+-TP et travaux pratiques
+-doucument et fiche, fiches d'appel
+- eleve et etudiant
+-intervention et matiere
+-creneaux et matieres
+-seance et matiere
+
+polysemes
+
+-cours et cours
+-liste
+
+ACTEURS INTERNES
+CPE, Bureau de scolarité, Enseignants: Collège
+
+ACTEURS EXTERNES
+Enseignants, parents, eleves
