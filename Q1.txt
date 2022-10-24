@@ -1,4 +1,4 @@
-synonymes
+SYNOYMES
 
 -salle et salle de classe et salle de cours
 -TP et travaux pratiques
@@ -7,8 +7,9 @@ synonymes
 -intervention et matiere
 -creneaux et matieres
 -seance et matiere
+-niveau et classe
 
-polysemes
+POLYSEMES
 
 -cours et cours
 -liste
