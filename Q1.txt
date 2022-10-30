@@ -8,6 +8,7 @@ SYNOYMES
 - Creneaux et matieres.
 - Seance et Cours.
 - Niveau et Classe.
+- Responsables légaux et parents.
 
 POLYSEMES
 
