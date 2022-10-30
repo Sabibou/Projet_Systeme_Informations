@@ -1,21 +1,28 @@
 SYNOYMES
 
--salle et salle de classe et salle de cours
--TP et travaux pratiques
--doucument et fiche, fiches d'appel
-- eleve et etudiant
--intervention et matiere
--creneaux et matieres
--seance et matiere
--niveau et classe
+- TP et travaux pratiques.
+- TD et travaux dirigés.
+- Doucument et fiche.
+- Eleve et Etudiant.
+- Intervention et Matière.
+- Creneaux et matieres.
+- Seance et Cours.
+- Niveau et Classe.
 
 POLYSEMES
 
--cours et cours
--liste
+- Cours          --> On a des differents types de cours, ex: cours de Francais, Latin ou cours de sporte.
+- Liste          --> Liste des éleves et liste des matériels.
+- Classe         --> Classe de 6è et par niveau superieur.
+- Salle          --> Salle de classe, salles machine, salle de sport et salle de cours.
+- Capacité       --> Capacité de laboratoires et capacité de Salles Machines.
+- Nom de famille --> Nom de famille des élèves et nom de famille des responsables légaux.
+- Prénom         --> Prénom des élèves et prénom des responsables légaux.
+- Seance         --> Seance type, seance exeptionelle et seance normale.
+- Date           --> Date de seance exeptionelle et date de la seance type.
 
 ACTEURS INTERNES
 CPE, Bureau de scolarité, Enseignants: Collège
 
 ACTEURS EXTERNES
-Enseignants, parents, eleves
+Enseignants, parents, élèves
