@@ -1,0 +1,78 @@
+Synonymes:
+-séance/cours
+-document/fiche
+-liste des élèves/classe
+-élèves/étudiants
+
+DCC:
+ACTEURS INTERNES:
+-enseignants
+-bureau scolaire
+-CPE
+
+
+ACTEURS EXTERNES:
+-Parents d'élèves
+-Eleves
+
+
+
+DF:
+
+numEleve->nomEleve  1
+	->prénomEleve   2
+	->numClasse    3
+	->demiGroupe   4
+
+numSalle->capacité    5
+	->typeSalle   6
+
+emailParent->numTelParent   7
+	   ->sexeParent    8
+	   ->nomParent    9
+	   ->typeContactPref   10
+
+idAbsence->numEleve    11
+	 ->debutAbsence   12
+	 ->finAbsence    13
+
+numMatSalle->numSalle   14
+	   ->nomMatériel 28
+
+numMatPrêtable->nomMatériel
+
+demiGroupe->numClasse   15
+
+idSeance->numEnseignant   16
+	->numSalle    17
+	->matiere    18
+	->idCreneau   19
+	->typeCours    20
+
+idSeanceExcep->idSeance   21
+	     ->dateReport   22
+	     ->raisonReport   23
+	     ->dateOrigine    24
+
+idCreneau->jourCreneau   25
+	 ->heureCreneau   26
+	 ->semaine    27
+
+IDENTIFIANTS :
+
+numEleve,   numSalle,   emailParent,   idabsence,    numMatSalle,    numMatPrêtable
+idSeance,     idSeanceExcep,    idCreneau,    numClasse,    demiGroupe, nomMatériel
+
+
+CLASSIFICATION DF :
+
+DF simple\cible id |	oui	                           |		non
+	oui        |    3,4,11,14,15,17,19,21,28,29        |      1,2,5,6,7,8,9,10,12,13,16,18,20,22,23,24,25,26,27
+	non	   |                                       |
+
+EXPLICATIONS MCD :
+
+nomMatériel est le nom  du matériel (par exemple "vidéo-prjecteur").
+numMatSalle est le numéro qui permet d'identifier deux matériaux ayant le même nom (par exemple s'il y a deux "vidéo-projecteur", l'un va être le numéro 1 et l'autre le numéro 2).
+numMatPrêtable est la même chose que numMatSalle mais pour les matériaux qui peuvent être prêtés.
+
