@@ -1,0 +1,104 @@
+Q1:
+
+SYNOYMES
+
+- Document type listant les élèves absents  et fiche.
+- Eleve et Etudiant.
+- Intervention et Matière.
+- type d'intervention et cours
+- Seance et Cours.
+- Niveau et Classe.
+- Responsables légaux et parents.
+
+POLYSEMES
+
+- Cours (cours magistral) et cours (matière)
+- 
+
+ACTEURS INTERNES
+CPE, Bureau de scolarité, Enseignants
+
+ACTEURS EXTERNES
+parents, élèves
+
+Q2: FAIT
+
+Q3: VOIR FICHIER EXCEL
+
+Q4: DFs symétriques
+
+- numTelPar et emailPar
+
+
+Q5: DFs
+
+numMat--> typeMat 1
+numMat--->nomMat  2
+numMat--->numSalle 3
+			
+numSalle--->capSalle 4 
+numSalle--->typeSalle 5 
+			
+numElv --->nomElv  6
+numElv --->prenomElv 7
+numElv --->numClasse  8
+numElv --->demiGrpe  9
+numElv --->numTelPar  10
+
+numTelPar--->emailPar 11 
+numTelPar--->sexePar  12
+numTelPar--->nomPar  13
+numTelPar--->lienPar  14
+numTelPar--->typeContactPref  15
+
+
+seanceExcep--->numSeance  17
+seanceExcep--->dateCoursExcep  18
+seanceExcep--->raisExcep 19
+numSeance--->nomMati  20
+numSeance--->typeDeCours  21
+numSeance--->dateCours  22
+numSeance--->heureDebCours 23
+numSeance--->dureeCours 24
+numSeance--->numSalle  25
+numSeance--->numEns  26
+numSeance--->numClasse  27
+
+seanceType et seanceExcep sont des héritiers de numSeance
+
+numAbs--->numElv  28
+numAbs--->dateDebAbs  29
+numAbs--->dateFinAbs  30
+numAbs--->justificatif  31
+
+
+Q6: RUBRIQES IDENTIFIANTES
+
+numMat, numSalle, numElv, numTelPar, numSeance, numAbs, numEns, numSurv, numClasse, seanceExcep, autreMat
+
+Q7: CLASSIFICATION DFs
+
+oui oui: 3, 8, 10, 17, 25, 26, 27, 28
+
+oui non: 1, 2, 4, 5, 6, 7; 9, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24, 29, 30, 31
+
+non oui: 
+
+non non: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Autre matériel, numSurv  comme rubrique identifiiante
+responsable légal id relatif a l'eleve
