@@ -1,0 +1,116 @@
+SYNOYMES
+
+- TP et travaux pratiques.
+- TD et travaux dirigés.
+- Doucument et fiche.
+- Eleve et Etudiant.
+- Intervention et Matière.
+- Creneaux et matieres.
+- Seance et Cours.
+- Niveau et Classe.
+- Responsables légaux et parents.
+
+POLYSEMES
+
+- Cours          --> On a des differents types de cours, ex: cours de Francais, Latin ou cours de sporte.
+- Liste          --> Liste des éleves et liste des matériels.
+- Classe         --> Classe de 6è et par niveau superieur.
+- Salle          --> Salle de classe, salles machine, salle de sport et salle de cours.
+- Capacité       --> Capacité de laboratoires et capacité de Salles Machines.
+- Nom de famille --> Nom de famille des élèves et nom de famille des responsables légaux.
+- Prénom         --> Prénom des élèves et prénom des responsables légaux.
+- Seance         --> Seance type, seance exeptionelle et seance normale.
+- Date           --> Date de seance exeptionelle et date de la seance type.
+
+ACTEURS INTERNES
+CPE, Bureau de scolarité, Enseignants: Collège
+
+ACTEURS EXTERNES
+Enseignants, parents, élèves
+
+DF:
+
+1. numSalle		--> capSalle
+2. 			--> typeSalle
+3.			--> idMateriel
+
+4. numClasse		--> typeClasse
+5. 			--> numEleve
+
+6. numEleve		--> nomEleve
+7.			--> PrenomEleve
+8.			--> nomParent
+9.			--> prenomParent
+10.			--> NumTelParent
+11.			--> sexeParent
+12.			--> emailParent
+13.			--> LienEleve
+14.			--> TypeContPref
+15.			--> demiGroupe
+
+16. numEnseignant	--> NomEnseign
+17.			--> PrenomEnseign
+18.			--> numMatiere
+
+19. idCours		--> typeCours
+20.			--> dureeCours
+21.			--> numEnseign
+22.			--> heureDebCours
+23.			--> dateCours
+
+25. (heureDebCours, HeureFinCours) 	--> dureeCours
+
+26. numMatiere		--> typeMatiere
+27.			--> nomMatiere
+28.			--> numSalle
+
+29. idSeance		--> numEleve
+30.			--> idCours 
+31.			--> NomEleve //indirecte
+32.			--> PrenomEleve //indirecte
+33.			--> HeureDebCours //indirecte
+34.			--> nomMatiere
+35.			--> numClasse
+36.			--> numSalle //indirecte
+37.			--> numEnseign
+
+38. idCreneau		--> jourCreneau
+39. 			--> dureeCreneau
+40.			--> heureCreneau
+41.			--> typeCreneau
+
+42. codeSeanceType	--> dureeSeanceType
+
+43. idMateriel		-->typeMateriel
+
+44. codeSeanceType	--> dateSeanceType
+45.			-->idCreneau	
+
+46. codeSeanceExept	--> dateSeanceExept
+47.			--> raisonChangExept
+48.			--> codeSeanceType
+49.			--> idSeance
+
+
+50. idSeance		--> typeSeance
+51.			--> horDebSeance
+
+RUBRIQUES IDENTIFIANTS :
+
+numEleve,   	numSalle,       	numMatSalle,    	CodeSeanceType,		numEnseign, 		numMatiere
+idSeance,       CodeSeanceExcep,        idCreneau,    		numClasse,    		idMatériel, 		idCours
+
+
+
+CLASSIFICATION DF :
+
+DF simple\cible id |	oui	                               |		non
+-------------------------------------------------------------------------------------------------------------------
+	oui        |    3,5,18,21,28,30,35,36,37,45,48,49      |      1,2,4,6,7,8,9,10,11,12,13,14,15,16,17,19,20,
+		   |					       |      22,23,26,34,38,39,40,41,43,44,46,47,50,51				
+-------------------------------------------------------------------------------------------------------------------
+	non	   |                                           |		    
+   
+
+
+
