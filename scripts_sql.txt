@@ -1,0 +1,127 @@
+Sub Create_Tables()
+
+DoCmd.RunSQL "CREATE TABLE ResponsableLégal(" & _
+   "emailParent VARCHAR(50)," & _
+   "numTelParent VARCHAR(50) NOT NULL," & _
+   "sexeParent VARCHAR(50)," & _
+   "nomParent VARCHAR(50)," & _
+   "typeContactPref VARCHAR(50)," & _
+   "PRIMARY KEY(emailParent)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Salle(" & _
+   "numSalle INT," & _
+   "typeSalle VARCHAR(50)," & _
+   "capacité VARCHAR(50)," & _
+   "PRIMARY KEY(numSalle)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Creneau(" & _
+   "id_creneau VARCHAR(50)," & _
+   "semaine VARCHAR(50)," & _
+   "jourCreneau DATE," & _
+   "heureCreneau TIME," & _
+   "PRIMARY KEY(id_creneau)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE séanceType(" & _
+   "idSeance INT," & _
+   "numEnseignant INT NOT NULL," & _
+   "typeSéance VARCHAR(50)," & _
+   "matière VARCHAR(50)," & _
+   "numSalle INT NOT NULL," & _
+   "id_creneau VARCHAR(50) NOT NULL," & _
+   "PRIMARY KEY(idSeance)," & _
+   "FOREIGN KEY(numSalle) REFERENCES Salle(numSalle)," & _
+   "FOREIGN KEY(id_creneau) REFERENCES Creneau(id_creneau)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE séanceExcep(" & _
+   "idSéanceExcep VARCHAR(50)," & _
+   "dateReport DATE," & _
+   "raisonReport VARCHAR(50)," & _
+   "dateOrigine DATE," & _
+   "idSeance INT NOT NULL," & _
+   "PRIMARY KEY(idSéanceExcep)," & _
+   "UNIQUE(idSeance)," & _
+   "FOREIGN KEY(idSeance) REFERENCES séanceType(idSeance)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Matériel(" & _
+   "nomMatériel INT," & _
+   "PRIMARY KEY(nomMatériel)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE MatérielPrêtable(" & _
+   "numMatPrêtable INT," & _
+   "nomMatériel INT NOT NULL," & _
+   "PRIMARY KEY(numMatPrêtable)," & _
+   "UNIQUE(nomMatériel)," & _
+   "FOREIGN KEY(nomMatériel) REFERENCES Matériel(nomMatériel)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Classe(" & _
+   "numClasse INT," & _
+   "PRIMARY KEY(numClasse)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE MatérielSalle(" & _
+   "numMatSalle INT," & _
+   "numSalle INT NOT NULL," & _
+   "nomMatériel INT NOT NULL," & _
+   "PRIMARY KEY(numMatSalle)," & _
+   "UNIQUE(nomMatériel)," & _
+   "FOREIGN KEY(numSalle) REFERENCES Salle(numSalle)," & _
+   "FOREIGN KEY(nomMatériel) REFERENCES Matériel(nomMatériel)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Demi_groupe(" & _
+   "demiGroupe INT," & _
+   "numClasse INT NOT NULL," & _
+   "PRIMARY KEY(demiGroupe)," & _
+   "FOREIGN KEY(numClasse) REFERENCES Classe(numClasse)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Eleve(" & _
+   "numEleve INT," & _
+   "nomEleve VARCHAR(50)," & _
+   "prenomEleve VARCHAR(50)," & _
+   "demiGroupe INT NOT NULL," & _
+   "PRIMARY KEY(numEleve)," & _
+   "FOREIGN KEY(demiGroupe) REFERENCES Demi_groupe(demiGroupe)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Absences(" & _
+   "idAbsence VARCHAR(50)," & _
+   "débutAbsence DATETIME NOT NULL," & _
+   "finAbsence DATETIME," & _
+   "numEleve INT NOT NULL," & _
+   "PRIMARY KEY(idAbsence)," & _
+   "FOREIGN KEY(numEleve) REFERENCES Eleve(numEleve)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE a_pour(" & _
+   "numEleve INT," & _
+   "emailParent VARCHAR(50)," & _
+   "PRIMARY KEY(numEleve, emailParent)," & _
+   "FOREIGN KEY(numEleve) REFERENCES Eleve(numEleve)," & _
+   "FOREIGN KEY(emailParent) REFERENCES ResponsableLégal(emailParent)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE demandePretMat(" & _
+   "idSeance INT," & _
+   "numMatPrêtable INT," & _
+   "PRIMARY KEY(idSeance, numMatPrêtable)," & _
+   "FOREIGN KEY(idSeance) REFERENCES séanceType(idSeance)," & _
+   "FOREIGN KEY(numMatPrêtable) REFERENCES MatérielPrêtable(numMatPrêtable)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE assiste(" & _
+   "demiGroupe INT," & _
+   "idSeance INT," & _
+   "PRIMARY KEY(demiGroupe, idSeance)," & _
+   "FOREIGN KEY(demiGroupe) REFERENCES Demi_groupe(demiGroupe)," & _
+   "FOREIGN KEY(idSeance) REFERENCES séanceType(idSeance)" & _
+");"   
+
+End Sub
