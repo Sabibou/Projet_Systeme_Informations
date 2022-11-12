@@ -129,6 +129,7 @@ Université Clermont Auvergne\\ \hline}
 	    \item \textbf{Prénom}--> Nom de famille des élèves et nom de famille des responsables légaux.
 	    \item \textbf{Séance} --> Seance type, seance exeptionelle et seance normale.
 	    \item \textbf{Date} --> Date de séance exceptionelle et date de la séance type.
+	    \item \textbf{Matériel} -> matériel prêtable et matériel déjà présent dans la salle
 	  \end{itemize}
 	  
 	  \subsection{Synonymes}
@@ -202,15 +203,148 @@ typeDeSéance &	Type de cours &	A &	E & & cours, TD ou TP		\\ \hline
 typeSalle &	Type de salle &	A &	E & & Labo, machine, sport, classique		\\ 
 	  \end{tabular}
 	  
+	  \section{Dépendances fonctionnelles}
+	  
+	  On obtient la liste de dépendances fonctionnelles  élémentaires directes non-réflexives à but
+      simple :
+      
+      \begin{enumerate}
+          \item numEleve->nomEleve  
+\item	numEleve->prénomEleve   
+\item numEleve	->demiGroupe   
 
+\item numSalle->capacité    
+\item	numSalle->typeSalle   
 
+\item emailParent->numTelParent   
+\item	   emailParent->sexeParent    
+\item	   emailParent->nomParent	   \item emailParent->typeContactPref   
+
+\item idAbsence->numEleve    
+\item	 idAbsence->debutAbsence   
+\item	 idAbsence->finAbsence    
+
+\item numMatSalle->numSalle   
+	\item   numMatSalle->nomMatériel 
+
+\item numMatPrêtable->nomMatériel
+
+\item demiGroupe->numClasse   
+
+\item idSeance->numEnseignant   
+\item	idSeance->numSalle    
+\item	idSeance->matiere    
+\item	idSeance->idCreneau   
+\item	idSeance->typeCours    
+
+\item idSeanceExcep->idSeance   
+\item	     idSeanceExcep->dateReport   
+\item	     idSeanceExcep->raisonReport   
+\item	     idSeanceExcep->dateOrigine    
+
+\item idCreneau->jourCreneau   
+\item	 idCreneau->heureCreneau   
+\item	 idCreneau->semaine    
+      \end{enumerate}
+      
+      \subsection{Graphe}
+      
+      \subsection{Rubriques identifiantes}
+      
+      On distingue les rubriques identifiantes suivantes :
+      
+      \begin{itemize}
+          \item numEleve
+          \item numSalle
+          \item emailParent
+          \item idAbsence
+          \item nomMatériel
+          \item numMatSalle
+          \item numMatPrêtable
+          \item idSéance
+          \item idSéanceExcep
+          \item idCréneau
+          \item numClasse
+          \item demiGroupe
+          
+      \end{itemize}
+
+    \subsection{Tableau des DF}
+    
+    \begin{tabular}{p{4cm}|p{5cm}|p{5cm}}
+        DF simple /cible identifiante & Oui & Non\\
+        \hline
+        Oui &  3, 10, 13, 14, 15, 16, 18, 20, 22  
+        & 1, 2, 4, 5, 6, 7, 8, 9, 11, 12, 17, 19, 21, 23, 24, 25, 26, 27, 28 \\
+         \hline
+        Non & & \\
+        
+        
+    \end{tabular}
 
 	    
+	   \section{Ebauches}
+	   
+	   \subsection{MCD}
+	   On obtient le MCD suivant :
+    \begin{figure}[H]
+	      \centering
+	      \includegraphics{./ebauche_mcd.jpg}
+	      \caption{Ebauche du MCD}
+	      
+	   
+	      
+	  \end{figure}
 	  
+	  \subsection{MLD}
+	  
+	  On obtient le MLD suivant :
 
-
-
-
+    \begin{figure}[H]
+	      \centering
+	      \includegraphics{./ebauche_mld.jpg}
+	      \caption{MLD obtenu à partir de l'ébauche de MCD}
+	      
+	   
+	      
+	  \end{figure}
+    
+    \section{Aménagement}
+    
+    \subsection{MCD}
+    
+    \begin{figure}[H]
+	      \centering
+	      \includegraphics{./mcd_amenage.jpg}
+	      \caption{MCD aménagé}
+	      
+	   
+	      
+	  \end{figure}
+	  
+	  \subsection{Explications des aménagements}
+	  
+	  \begin{itemize}
+	      \item implémentation d'un héritage pour décrire le cas des matériaux
+	  \end{itemize}
+	  
+	  \subsection{MLD}
+	  
+	  \begin{figure}[H]
+	      \centering
+	      \includegraphics{./mld_amenage.jpg}
+	      \caption{MLD obtenu à partir du MCD aménagé}
+	      
+	   
+	      
+	  \end{figure}
+	  
+	  \section{Scripts SQL}
+	  
+	  \include{scripts_sql}
+	  
+	  \section{Conclusion}
+    
 
 	
 	
