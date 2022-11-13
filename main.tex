@@ -158,6 +158,11 @@ Université Clermont Auvergne\\ \hline}
 	      \caption{DCC}
 	  \end{figure}
 	  
+	  Premièrement l'enseignant demande la disponibilité à la CPE. Une fois que l'enseignant a demandé la disponibilité à CPE, ce dernier envoi la reponse de disponibilité à l'enseignant.\\
+	  A chaque séance l'enseignant fait l'appel et les étudiants qui sont présents le confirme. L'enseignant remplit
+	  le document listant les élèves absents destiné au bureau scolaire.\\
+	  Les responsables légaux envoient un mail ou SMS au bureau scolaire pour justifier l'absence de leur enfant.\\
+	  Et pour les élèves dont l'absence n'est pas justifiée, la bureau scolaire contacte leurs parents pour s'informer.\\
 	  \section{Dictionnaire de données}
 	  
 	  \begin{tabular}{|p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|}
@@ -169,7 +174,7 @@ dateDebutCreneau &	Date du début du créneau &	Date &	E & * &		Un créneau ne p
 dateOrigine &	Date à laquelle devait se tenir originellement la séance &	Date &	E & * & *\\ \hline	
 dateReport &	Date à laquelle est reportée la séance &	Date &	E & * &*		\\ \hline
 debutAbsence &	Date du debut de l'absence	Date &	E &	* & * &*	\\ \hline
-demiGroupe	& Numéro du demi-groupe &	N &	E & * & *		\\ \hline
+demiGroupe	& Numéro du demi-groupe &	N &	E & * & A ou B		\\ \hline
 emailParent &	Adresse mail du représentant légal & AN &	E & * & *	\\ \hline	
 finAbsence &	Fin de l'absence &	Date &	E & * & * 	\\ \hline
 heureCreneau &	Heure à laquelle se déroule le créneau &	Heure &	E & * & *	\\ \hline	
@@ -180,35 +185,35 @@ idSéance &	Numéro de la séance	& N &	E & * & *		\\ \hline
 idSeanceExcep	& Numéro de la séance exceptionnelle &	N &	E & * & *	\\ \hline	
 idSurv	& Identifiant du Surveillant &	N &	E & * & *	\\ \hline	
 jourCreneau	& Jour de la semaine où se déroule le créneau &	A &	E & * & *	\\ \hline	
-justificatif	& Justificatif de l'absence	& A &	E &  & 	\\ \hline
-matière	& Nom de la matière	& A &	E &  & 	\\ \hline
+justificatif	& Justificatif de l'absence	& A &	E & * & *	\\ \hline
+matière	& Nom de la matière	& A &	E & * & * 	\\ \hline
 
 	  \end{tabular}
 	  
 	  \begin{tabular}{|p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|}
 	       nomEleve &	Nom de famille de l'élève &	A &	E &	* &	* \\ \hline
 nomMatériel	& Nom du matériel &	A &	E & &		\\ \hline
-NomParent &	Nom de famille du responsable légal &	A &	E	& &	\\ \hline
-numClasse &	Numéro de classe &	AN &	E	& &	\\ \hline
+NomParent &	Nom de famille du responsable légal &	A &	E	& * & *	\\ \hline
+numClasse &	Numéro de classe &	AN &	E	& * & *	\\ \hline
 numEleve &	Numéro de l'élève &	N &	E &	* &	XXXXXXXXX\\ \hline
-numEnseignant &	Numéro de l'enseignant &	N &	E & &		\\ \hline
-numMatPrêtable &	Numéro du matériel prêtable &	N &	E & &	\\ \hline	
-numMatSalle &	Numéro du matériel présent dans la salle &	N &	E & &	\\ \hline	
-numSalle &	Numéro de la salle &	N &	E & &		\\ \hline
-numTelParent &	Numéro de téléphone des parents &	N &	E & &	\\ \hline	
-prénomElève &	Prénom de l'élève &	A &	E & &		\\ \hline
-raisonReport &	Raison du report de la séance &	A &	E & &	\\ \hline	
-semaine &	Type de semaine &	A &	E & & A ou B		\\ \hline
-sexeParent &	Sexe du responsable légal &	A &	E & &	\\ \hline	
-TypeContactPref &	Moyen de contact préférentiel du responsable légal &	A &	E & &	\\ \hline	
-typeDeSéance &	Type de cours &	A &	E & & cours, TD ou TP		\\ \hline
-typeSalle &	Type de salle &	A &	E & & Labo, machine, sport, classique		\\ 
+numEnseignant &	Numéro de l'enseignant &	N &	E & * & *		\\ \hline
+numMatPrêtable &	Numéro du matériel prêtable &	N &	E & * & *	\\ \hline	
+numMatSalle &	Numéro du matériel présent dans la salle &	N &	E & * &	*\\ \hline	
+numSalle &	Numéro de la salle &	N &	E & * & *		\\ \hline
+numTelParent &	Numéro de téléphone des parents &	N &	E & * & *	\\ \hline	
+prénomElève &	Prénom de l'élève &	A &	E & * & *		\\ \hline
+raisonReport &	Raison du report de la séance &	A &	E & * & *	\\ \hline	
+semaine &	Type de semaine &	A &	E & * & A ou B		\\ \hline
+sexeParent &	Sexe du responsable légal &	A &	E & * & *	\\ \hline	
+TypeContactPref &	Moyen de contact préférentiel du responsable légal &	A &	E & * & *	\\ \hline	
+typeDeSéance &	Type de cours &	A &	E & *  & cours, TD ou TP		\\ \hline
+typeSalle &	Type de salle &	A &	E & * & Labo, machine, sport, classique		\\ 
 \hline
 	  \end{tabular}
 	  
 	  \section{Dependances fonctionnelles symetriques}
 	  
-Etant donne que emailParent et numTelParent peuvent identifier le parent/representant legal, on a emailParent $\rightarrow$ numTelParent et numTelParent $\rightarrow$ emailParent. Dans la suite de notre travail nous allons identifier le parent avec emailParent.
+Etant donne que \textbf{emailParent }et \textbf{numTelParent }peuvent identifier le parent/representant legal, on a \textbf{emailParent }$\rightarrow$ \textbf{numTelParent }et \textbf{numTelParent }$\rightarrow$ \textbf{emailParent}. Dans la suite de notre travail nous allons identifier le parent avec \textbf{emailParent}.
 	  
 	  \section{Dépendances fonctionnelles}
 	  
@@ -302,7 +307,7 @@ Etant donne que emailParent et numTelParent peuvent identifier le parent/represe
 	   On obtient le MCD suivant :
     \begin{figure}[H]
 	      \centering
-	      \includegraphics[scale=0.08]{./ebauche_mcd.jpg}
+	      \includegraphics[scale=0.23]{./ebauche_mcd.jpg}
 	      \caption{Ebauche du MCD}
 	      
 	   
@@ -315,7 +320,7 @@ Etant donne que emailParent et numTelParent peuvent identifier le parent/represe
 
     \begin{figure}[H]
 	      \centering
-	      \includegraphics[scale=0.08]{./ebauche_mld.jpg}
+	      \includegraphics[scale=0.23]{./ebauche_mld.jpg}
 	      \caption{MLD obtenu à partir de l'ébauche de MCD}
 	      
 	   
@@ -328,7 +333,7 @@ Etant donne que emailParent et numTelParent peuvent identifier le parent/represe
     
     \begin{figure}[H]
 	      \centering
-	      \includegraphics[scale=0.08]{./mcd_amenage.jpg}
+	      \includegraphics[scale=0.23]{./mcd_amenage.jpg}
 	      \caption{MCD aménagé}
 	      
 	   
@@ -338,14 +343,26 @@ Etant donne que emailParent et numTelParent peuvent identifier le parent/represe
 	  \subsection{Explications des aménagements}
 	  
 	  \begin{itemize}
-	      \item implémentation d'un héritage pour décrire le cas des matériaux
+	      \item On a choisi d'identifier l'entité \textbf{Absence} relativement à \textbf{Elève}. Son identifiant est désormais \textbf{debutAbsence,numEleve}. 
+	      \item On a supprimé l'entité \textbf{Surveillant }car celle-ci n'agissait pas dans notre MCD.
+	      \item L'entité \textbf{Demi-Groupe} est aussi désormais identifiée relativement à \textbf{Classe}. Par classe, on a 2 demi-groupes : le A et le B.
+	      \item L'entité \textbf{Séance\_Exceptionnelle} est aussi identifiée relativement à \textbf{Séance\_Type}. 
+	      \item On a intégré une contrainte de spécialisation pour le cas des matériaux. Cela veut dire qu'une occurrence de \textbf{Matériel} est soit une occurrence de \textbf{MatérielSalle} soit de \textbf{MatérielPrêtable}.
+	      \item On a décidé qu'un élève a soit un ou deux responsables légaux maximum. Un responsable légal l'est pour un ou plusieurs élèves.
+	      \item Un élève est forcément dans un demi-groupe, qui compte 1 ou plusieurs élèves.
+	      \item Un élève a été absent 0 ou plusieurs fois.
+	      \item Un créneau compte 0 ou plusieurs séances types, mais une séance type correspond forcément à un créneau.
+	      \item Un matériel de salle est forcément dans une salle, hors une salle peut posséder 0 ou plusieurs matériaux.
+	      \item Un matériel prêtable peut être sujet à 0 ou plusieurs demandes de prêt et une séance-type peut compter 0 ou plusieurs matériaux prêtés.
+	      \item Une séance-type se déroule forcément dans une salle et une salle peut accueillir 0 ou plusieurs séances-types.
+	      \item Une séance-type peut être à destination d'1 ou 2 demi-groupes (une classe), et un demi-groupe assiste à 0 ou plusieurs cours.
 	  \end{itemize}
 	  
 	  \subsection{MLD}
 	  
 	  \begin{figure}[H]
 	      \centering
-	      \includegraphics[scale=0.08]{./mld_amenage.jpg}
+	      \includegraphics[scale=0.23]{./mld_amenage.jpg}
 	      \caption{MLD obtenu à partir du MCD aménagé}
 	      
 	   
