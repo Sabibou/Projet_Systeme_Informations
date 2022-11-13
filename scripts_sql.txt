@@ -37,12 +37,12 @@ DoCmd.RunSQL "CREATE TABLE séanceType(" & _
 ");"   
 
 DoCmd.RunSQL "CREATE TABLE séanceExcep(" & _
+   "idSeance INT," & _
    "idSéanceExcep VARCHAR(50)," & _
    "dateReport DATE," & _
    "raisonReport VARCHAR(50)," & _
    "dateOrigine DATE," & _
-   "idSeance INT NOT NULL," & _
-   "PRIMARY KEY(idSéanceExcep)," & _
+   "PRIMARY KEY(idSeance, idSéanceExcep)," & _
    "UNIQUE(idSeance)," & _
    "FOREIGN KEY(idSeance) REFERENCES séanceType(idSeance)" & _
 ");"   
@@ -76,9 +76,9 @@ DoCmd.RunSQL "CREATE TABLE MatérielSalle(" & _
 ");"   
 
 DoCmd.RunSQL "CREATE TABLE Demi_groupe(" & _
+   "numClasse INT," & _
    "demiGroupe INT," & _
-   "numClasse INT NOT NULL," & _
-   "PRIMARY KEY(demiGroupe)," & _
+   "PRIMARY KEY(numClasse, demiGroupe)," & _
    "FOREIGN KEY(numClasse) REFERENCES Classe(numClasse)" & _
 ");"   
 
@@ -86,17 +86,17 @@ DoCmd.RunSQL "CREATE TABLE Eleve(" & _
    "numEleve INT," & _
    "nomEleve VARCHAR(50)," & _
    "prenomEleve VARCHAR(50)," & _
+   "numClasse INT NOT NULL," & _
    "demiGroupe INT NOT NULL," & _
    "PRIMARY KEY(numEleve)," & _
-   "FOREIGN KEY(demiGroupe) REFERENCES Demi_groupe(demiGroupe)" & _
+   "FOREIGN KEY(numClasse, demiGroupe) REFERENCES Demi_groupe(numClasse, demiGroupe)" & _
 ");"   
 
 DoCmd.RunSQL "CREATE TABLE Absences(" & _
-   "idAbsence VARCHAR(50)," & _
-   "débutAbsence DATETIME NOT NULL," & _
+   "numEleve INT," & _
+   "débutAbsence DATETIME," & _
    "finAbsence DATETIME," & _
-   "numEleve INT NOT NULL," & _
-   "PRIMARY KEY(idAbsence)," & _
+   "PRIMARY KEY(numEleve, débutAbsence)," & _
    "FOREIGN KEY(numEleve) REFERENCES Eleve(numEleve)" & _
 ");"   
 
@@ -117,10 +117,11 @@ DoCmd.RunSQL "CREATE TABLE demandePretMat(" & _
 ");"   
 
 DoCmd.RunSQL "CREATE TABLE assiste(" & _
+   "numClasse INT," & _
    "demiGroupe INT," & _
    "idSeance INT," & _
-   "PRIMARY KEY(demiGroupe, idSeance)," & _
-   "FOREIGN KEY(demiGroupe) REFERENCES Demi_groupe(demiGroupe)," & _
+   "PRIMARY KEY(numClasse, demiGroupe, idSeance)," & _
+   "FOREIGN KEY(numClasse, demiGroupe) REFERENCES Demi_groupe(numClasse, demiGroupe)," & _
    "FOREIGN KEY(idSeance) REFERENCES séanceType(idSeance)" & _
 ");"   
 
