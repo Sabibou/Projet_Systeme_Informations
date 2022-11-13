@@ -1,0 +1,6 @@
+Premièrement l'enseignant demande la disponibilité à CPE. Une fois que l'enseignant a demandé la disponibilité à CPE, 
+ce dernier envoi la reponse de disponibilité à l'enseignant.
+A chaque seance l'enseignant fait l'appel et les étudiants qu'ils sont présents confirment la presence. L'enseignqnt remplit 
+le document listant les élèves absents à bureau scolaire.
+Les responsables legaux envoient un mail ou SMS à bureau scolaire pour justifier l'absence de leur enfant.
+Et pour les elèves que leur absence n'est pas justifié, la bureau scolaire contacte leur parents pour s'informer.
