@@ -160,14 +160,15 @@ Université Clermont Auvergne\\ \hline}
 	  
 	  \section{Dictionnaire de données}
 	  
-	  \begin{tabular}{p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}}
+	  \begin{tabular}{|p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|}
+	  \hline
 	      Code Rubrique & Libellé & Type &Nature & Calcul & Contrainte d'intégrité \\ \hline
 	      \hline
 	       capacité	& Capacité de la salle &	N &	E	& * & *	\\ \hline 
 dateDebutCreneau &	Date du début du créneau &	Date &	E & * &		Un créneau ne peut pas débuter à 12h\\ \hline
 dateOrigine &	Date à laquelle devait se tenir originellement la séance &	Date &	E & * & *\\ \hline	
 dateReport &	Date à laquelle est reportée la séance &	Date &	E & * &*		\\ \hline
-debutAbsence &	Date du debut de l'absence	Date &	E &	* & *	\\ \hline
+debutAbsence &	Date du debut de l'absence	Date &	E &	* & * &*	\\ \hline
 demiGroupe	& Numéro du demi-groupe &	N &	E & * & *		\\ \hline
 emailParent &	Adresse mail du représentant légal & AN &	E & * & *	\\ \hline	
 finAbsence &	Fin de l'absence &	Date &	E & * & * 	\\ \hline
@@ -177,12 +178,14 @@ idAbsence &	Numéro de l'absence &	N &	E & * & *		\\ \hline
 idCreneau &	Numéro du créneau &	N &	E & * & *		\\ \hline
 idSéance &	Numéro de la séance	& N &	E & * & *		\\ \hline
 idSeanceExcep	& Numéro de la séance exceptionnelle &	N &	E & * & *	\\ \hline	
+idSurv	& Identifiant du Surveillant &	N &	E & * & *	\\ \hline	
 jourCreneau	& Jour de la semaine où se déroule le créneau &	A &	E & * & *	\\ \hline	
+justificatif	& Justificatif de l'absence	& A &	E &  & 	\\ \hline
 matière	& Nom de la matière	& A &	E &  & 	\\ \hline
 
 	  \end{tabular}
 	  
-	  \begin{tabular}{p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}}
+	  \begin{tabular}{|p{4cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|}
 	       nomEleve &	Nom de famille de l'élève &	A &	E &	* &	* \\ \hline
 nomMatériel	& Nom du matériel &	A &	E & &		\\ \hline
 NomParent &	Nom de famille du responsable légal &	A &	E	& &	\\ \hline
@@ -197,10 +200,15 @@ prénomElève &	Prénom de l'élève &	A &	E & &		\\ \hline
 raisonReport &	Raison du report de la séance &	A &	E & &	\\ \hline	
 semaine &	Type de semaine &	A &	E & & A ou B		\\ \hline
 sexeParent &	Sexe du responsable légal &	A &	E & &	\\ \hline	
-TypeContactPref &	Moyen de contact préférentiel du responsable légal &	A &	E &	\\ \hline	
+TypeContactPref &	Moyen de contact préférentiel du responsable légal &	A &	E & &	\\ \hline	
 typeDeSéance &	Type de cours &	A &	E & & cours, TD ou TP		\\ \hline
 typeSalle &	Type de salle &	A &	E & & Labo, machine, sport, classique		\\ 
+\hline
 	  \end{tabular}
+	  
+	  \section{Dependances fonctionnelles symetriques}
+	  
+Etant donne que emailParent et numTelParent peuvent identifier le parent/representant legal, on a emailParent $\rightarrow$ numTelParent et numTelParent $\rightarrow$ emailParent. Dans la suite de notre travail nous allons identifier le parent avec emailParent.
 	  
 	  \section{Dépendances fonctionnelles}
 	  
@@ -208,42 +216,45 @@ typeSalle &	Type de salle &	A &	E & & Labo, machine, sport, classique		\\
       simple :
       
       \begin{enumerate}
-          \item numEleve->nomEleve  
-\item	numEleve->prénomEleve   
-\item numEleve	->demiGroupe   
+          \item numEleve $\rightarrow$ nomEleve  
+\item	numEleve $\rightarrow$ prénomEleve   
+\item numEleve	$\rightarrow$ demiGroupe   
 
-\item numSalle->capacité    
-\item	numSalle->typeSalle   
+\item numSalle $\rightarrow$ capacité    
+\item	numSalle $\rightarrow$ typeSalle   
 
-\item emailParent->numTelParent   
-\item	   emailParent->sexeParent    
-\item	   emailParent->nomParent	   \item emailParent->typeContactPref   
+\item emailParent $\rightarrow$ numTelParent   
+\item	   emailParent $\rightarrow$ sexeParent    
+\item	   emailParent $\rightarrow$ nomParent	   
+\item emailParent $\rightarrow$ typeContactPref   
 
-\item idAbsence->numEleve    
-\item	 idAbsence->debutAbsence   
-\item	 idAbsence->finAbsence    
+\item idAbsence $\rightarrow$ numEleve    
+\item	 idAbsence $\rightarrow$ debutAbsence   
+\item	 idAbsence $\rightarrow$ finAbsence  
 
-\item numMatSalle->numSalle   
-	\item   numMatSalle->nomMatériel 
+\item numMatSalle $\rightarrow$ numSalle   
+	\item   numMatSalle $\rightarrow$ nomMatériel 
 
-\item numMatPrêtable->nomMatériel
+\item numMatPrêtable $\rightarrow$ nomMatériel
 
-\item demiGroupe->numClasse   
+\item demiGroupe $\rightarrow$ numClasse   
 
-\item idSeance->numEnseignant   
-\item	idSeance->numSalle    
-\item	idSeance->matiere    
-\item	idSeance->idCreneau   
-\item	idSeance->typeCours    
+\item idSeance $\rightarrow$ numEnseignant   
+\item	idSeance $\rightarrow$ numSalle    
+\item	idSeance $\rightarrow$ matiere    
+\item	idSeance $\rightarrow$ idCreneau   
+\item	idSeance $\rightarrow$ typeCours    
 
-\item idSeanceExcep->idSeance   
-\item	     idSeanceExcep->dateReport   
-\item	     idSeanceExcep->raisonReport   
-\item	     idSeanceExcep->dateOrigine    
+\item idSeanceExcep $\rightarrow$ idSeance   
+\item	     idSeanceExcep $\rightarrow$ dateReport   
+\item	     idSeanceExcep $\rightarrow$ raisonReport   
+\item	     idSeanceExcep $\rightarrow$ dateOrigine    
 
-\item idCreneau->jourCreneau   
-\item	 idCreneau->heureCreneau   
-\item	 idCreneau->semaine    
+\item idCreneau $\rightarrow$ jourCreneau   
+\item	 idCreneau $\rightarrow$ heureCreneau   
+\item	 idCreneau $\rightarrow$ semaine  
+
+\item idAbsence $\rightarrow$ justificatif
       \end{enumerate}
       
       \subsection{Graphe}
@@ -265,18 +276,21 @@ typeSalle &	Type de salle &	A &	E & & Labo, machine, sport, classique		\\
           \item idCréneau
           \item numClasse
           \item demiGroupe
+          \item numSurv
           
       \end{itemize}
 
     \subsection{Tableau des DF}
     
-    \begin{tabular}{p{4cm}|p{5cm}|p{5cm}}
+    \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
+    \hline
         DF simple /cible identifiante & Oui & Non\\
         \hline
         Oui &  3, 10, 13, 14, 15, 16, 18, 20, 22  
-        & 1, 2, 4, 5, 6, 7, 8, 9, 11, 12, 17, 19, 21, 23, 24, 25, 26, 27, 28 \\
+        & 1, 2, 4, 5, 6, 7, 8, 9, 11, 12, 17, 19, 21, 23, 24, 25, 26, 27, 28, 29 \\
          \hline
         Non & & \\
+        \hline
         
         
     \end{tabular}
